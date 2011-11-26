@@ -1,0 +1,43 @@
+<div class="user photos list">
+	<h2>Users Photos</h2>
+		<%= debug @photo %>
+		<%= debug @user %>
+	<div class="table">
+		<table class="listing" summary="User photos">
+			<tr class="header">
+				<th>&nbsp;</th>
+				<th>Photos</th>
+			</tr>
+			<% @photos.each_with_index do |photo,i| %>
+			<tr>
+				<td> <%= i+1 %> </td>
+				<td>
+				<table class = "single photo">
+				<td><%= image_tag('rails.png',:size => '50x64', :alt => "User X Photo")%></td>
+				<td>
+					<table class = "photo description">
+						<tr>
+							<td><%= photo.date %></td>
+						</tr>
+						<tr>
+							<td><%= photo.title %></td>
+						</tr>
+						<tr>
+							<td><%= photo.geo_location %></td>
+						</tr>
+						
+						<tr>
+							<td class="action"> 
+								<%= link_to("Add Comment",{:action => "foo", :id => photo.id},:class => "action add comment") %>
+						</tr>
+					</table>
+				</td>
+				</td>
+				</table>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+		<%= link_to("Add new photo", {:action => 'new', :user_id => params[:id]}, :class => 'back-link') %>
+	</div>
+</div>

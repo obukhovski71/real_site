@@ -1,0 +1,13 @@
+<% users ||= [] %>
+<ul>
+<% users.each do |user| %>
+  <li>
+    <%= user.first_name + " " + user.last_name %>
+    <ul>
+    <% user.photos.visible.sorted.each do |page| %>
+      <li><%= link_to_unless_current(page.name, :action => 'show', :id => page.permalink) %></li>
+    <% end %>
+    </ul>
+  </li>
+  <% end %>
+</ul>

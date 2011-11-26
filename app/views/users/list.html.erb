@@ -1,0 +1,37 @@
+<div class="user list">
+	<h2>MyUsers</h2>
+	<div class="table">
+		<table class="listing" summary="User list">
+			<tr class="header">
+				<th>&nbsp;</th>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>User name</th>
+				<th>Email</th>
+				<th>Role</th>
+				<th>Date of birth</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+			<% @users.each_with_index do |user,i| %>
+			<tr>
+				<td> <%= i+1 %> </td>
+				<td><%= user.first_name %></td>
+				<td><%= user.last_name %></td>
+				<td><%= user.user_name %></td>
+				<td><%= user.email %></td>
+				<td class="center"> <%= user.role_id == 0 ? "Admin":"Loh" %></td>
+				<td><%= user.date_of_birth %></td>
+				<td><%=user.status %></td>
+				<td class="action"> 
+					<%= link_to("Show",{:action => "show", :id => user.id},:class => "action show") %>
+					<%= link_to("Edit", {:action => "edit",:id => user.id},:class => "action edit") %>
+					<%= link_to("Delete", {:action => "delete", :id => user.id},:class => "action delete") %> 
+					<%= link_to("All Photos", {:controller => 'photos', :action => "list", :id => user.id},:class => "action list") %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+		<%= link_to("Add new user", {:action => 'new'}, :class => 'back-link') %>
+	</div>
+</div>

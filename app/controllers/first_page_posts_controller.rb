@@ -1,0 +1,2 @@
+class FirstPagePostsController < ApplicationController
+end

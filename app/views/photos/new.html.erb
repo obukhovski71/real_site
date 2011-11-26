@@ -1,0 +1,32 @@
+<div class="subject new">
+	<h2>Add photo</h2>
+	<%= form_for(:photo, :url => {:action => "create", :user_id => @user.id}) do |f|%>
+	<table summary = "Photo form fields">
+		<%= debug @photo %>
+		<%= debug @user %>
+		<tr>
+			<th>Title</th>
+			<td><%= f.text_field(:title) %></td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><%= f.text_field(:description) %></td>
+		</tr>
+		<tr>
+			<th>Date</th>
+			<td><%= f.text_field(:date) %></td>
+		</tr>
+		<tr>
+			<th>Where</th>
+			<td><%= f.text_field(:geo_location) %></td>
+		</tr>
+		<tr>
+			<th>User</th>
+			<td></td>
+		</tr>
+		</table>
+		<div class="form-button">
+			<%= submit_tag("Upload Photo")	%>
+		</div>
+		<%end%>
+		</div>
