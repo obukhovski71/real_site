@@ -12,9 +12,9 @@ class PhotosController < ApplicationController
   def new
     logger.debug("Controller Photos/Action New") 
     puts params.inspect
-    @photo = Photo.new(:user_id => params[:id])
+    @photo = Photo.new(:user_id => params[:user_id])
     # @photo.user_id = :user_id
-    @user = User.where(:id => params[:id])
+    @user = User.where(:id => params[:user_id])
   end
   def create
     logger.debug("Controller Photos/Action Create") 

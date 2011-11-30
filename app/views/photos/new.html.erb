@@ -1,9 +1,9 @@
 <div class="subject new">
 	<h2>Add photo</h2>
 	<%= debug @photo %>
-	<%= form_for(@photo) do |f|%>
+	<%= debug @user %>
+	<%= form_for(:photo, :url => {:action => 'create', :user_id => params[:user_id]}) do |f|%>
 	<table summary = "Photo form fields">
-		<%f.user_id = @photo.user_id%>
 		<tr>
 			<th>Title</th>
 			<td><%= f.text_field(:title) %></td>
