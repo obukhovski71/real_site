@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   def list
     @users = User.order("users.last_name ASC")
   end
-
+  def list_photos
+    @photos = Photo.where(:user_id => params[:id]).order("photos.date ASC")
+    @user = User.where(:id => params[:id]) 
+    logger.debug ("test test")
+  end
   def show
     @user = User.find(params[:id])
   end
@@ -16,7 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to(:action => "list")
+      redirect_to(action => "list")
     else
       render("new")
     end

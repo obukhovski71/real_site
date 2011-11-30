@@ -1,9 +1,9 @@
 <div class="subject new">
 	<h2>Add photo</h2>
-	<%= form_for(:photo, :url => {:action => "create", :user_id => @user.id}) do |f|%>
+	<%= debug @photo %>
+	<%= form_for(@photo) do |f|%>
 	<table summary = "Photo form fields">
-		<%= debug @photo %>
-		<%= debug @user %>
+		<%f.user_id = @photo.user_id%>
 		<tr>
 			<th>Title</th>
 			<td><%= f.text_field(:title) %></td>
@@ -21,7 +21,7 @@
 			<td><%= f.text_field(:geo_location) %></td>
 		</tr>
 		<tr>
-			<th>User</th>
+			<th>Uploaded by(user)</th>
 			<td></td>
 		</tr>
 		</table>

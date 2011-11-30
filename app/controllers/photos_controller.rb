@@ -4,21 +4,26 @@ class PhotosController < ApplicationController
     list
     render('list')
   end
-  def list
-    @photos = Photo.where(:user_id => params[:id]).order("photos.date ASC")
-    @user = User.where(:id => params[:id]) 
-    logger.debug ("test test") 
-  end
+ # def list
+ #   @photos = Photo.where(:user_id => params[:id]).order("photos.date ASC")
+ #   @user = User.where(:id => params[:id]) 
+ #   logger.debug ("test test") 
+ # end
   def new
-    @photo = Photo.new(:user_id => params[:user_id])
+    logger.debug("Controller Photos/Action New") 
+    puts params.inspect
+    @photo = Photo.new(:user_id => params[:id])
     # @photo.user_id = :user_id
-    @user = User.where(:id => params[:user_id])
+    @user = User.where(:id => params[:id])
   end
   def create
+    logger.debug("Controller Photos/Action Create") 
+    p params
     @photo = Photo.new(params[:photo])
-    logger.debug "The object is #{@photo}"
+    @photo.user_id = params[:user_id]
+    logger.debug "The object is #{@photo.inspect}"
     if @photo.save
-      redirect_to(:action => "list", :user_id => @photo.user_id)
+      redirect_to(:controller => "users", :action => "list_photos", :user_id => @photo.user_id)
     else
       render("new")
     end

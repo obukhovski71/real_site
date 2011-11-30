@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :photo_users
   has_many :photo_events
   has_many :photos
+  has_many :events
   # def recent_photos
   #   self.photos.find(:all, order => "date ASC", limit => 7)
   # end

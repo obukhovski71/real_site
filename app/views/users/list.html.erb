@@ -27,7 +27,7 @@
 					<%= link_to("Show",{:action => "show", :id => user.id},:class => "action show") %>
 					<%= link_to("Edit", {:action => "edit",:id => user.id},:class => "action edit") %>
 					<%= link_to("Delete", {:action => "delete", :id => user.id},:class => "action delete") %> 
-					<%= link_to("All Photos", {:controller => 'photos', :action => "list", :id => user.id},:class => "action list") %>
+					<%= link_to("All Photos", {:action => "list_photos", :id => user.id},:class => "action list") %>
 				</td>
 			</tr>
 			<% end %>
