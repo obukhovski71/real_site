@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   has_many :photo_users
-  has_many :comment_photos
+  has_many :comments
   belongs_to :event
   belongs_to :user
 end

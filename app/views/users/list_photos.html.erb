@@ -27,7 +27,7 @@
 						
 						<tr>
 							<td class="action"> 
-								<%= link_to("Add Comment",{:action => "foo", :id => photo.id},:class => "action add comment") %>
+								<%= link_to("Add Comment",{:controller => "comments", :action => "new", :photo_id => photo.id},:class => "action add comment") %>
 						</tr>
 					</table>
 				</td>

@@ -1,0 +1,11 @@
+	<%= debug @photo %>
+	<%= debug @comment%>
+<div class = "comment new">
+	
+	<%= form_for([@photo, @photo.comments.build]) do |f|%>
+	<%= render(:partial => 'form_comment', :locals => {:f => f}) %>
+	<div class="form-button">
+		<%= submit_tag("Submit Comment")%>
+	</div>
+	<%end%>
+</div>
