@@ -10,7 +10,11 @@ class UsersController < ApplicationController
   end
   def list_photos
     @photos = Photo.where(:user_id => params[:id]).order("photos.date ASC")
-    @user = User.where(:id => params[:id]) 
+    @user = User.where(:id => params[:id])
+#    @all_comments = []
+#    for p in @photos
+#      
+#    end  
     logger.debug ("test test")
   end
   def show
@@ -39,7 +43,7 @@ class UsersController < ApplicationController
     # Update the object
     if @user.update_attributes(params[:user])
       # If update succeeds, redirect to the list action
-      redirect_to(:action => 'show', :id => @user.id)
+      redirect_to(:action => 'list')
     else
     # If save fails, redisplay the form so user can fix problems
       render('edit')

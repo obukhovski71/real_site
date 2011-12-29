@@ -1,5 +1,6 @@
 RealSite::Application.routes.draw do
-    root :to => 'users#list'
+    #root :to => 'users#list'
+    root :to => 'access#login'
     resources :photos
     resources :comments
   # The priority is based upon order of creation:

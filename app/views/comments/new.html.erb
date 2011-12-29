@@ -1,8 +1,9 @@
 	<%= debug @photo %>
 	<%= debug @comment%>
 <div class = "comment new">
-	
-	<%= form_for([@photo, @photo.comments.build]) do |f|%>
+	<%= form_for(@comment, :url => {:action => 'create', :photo_id => @photo.id}) do |f|%>
+    
+	    <% f[:user_id] = @user.role_id %>
 	<%= render(:partial => 'form_comment', :locals => {:f => f}) %>
 	<div class="form-button">
 		<%= submit_tag("Submit Comment")%>

@@ -13,18 +13,25 @@ class CommentsController < ApplicationController
   end
 
   def create
-    logger.debug("===================================")
-    logger.debug("Controller PhotoComments/Action New")
-    logger.debug("===================================")
+    logger.debug("======================================")
+    logger.debug("Controller PhotoComments/Action Create")
+    logger.debug("======================================")
     logger.debug("object #{@user.inspect}")
+    logger.debug("======================================")
+    logger.debug("object #{@photo.inspect}")
     logger.debug("===================================")
     puts params.inspect
     logger.debug("===================================")
-    @comment = @photo.comments.create(params[:comment])
+    @comment = Comment.new(params[:comment])
+    @comment.photo_id = params[:photo_id]
+    ## @comment.user_id = params[:user_id]
+    debugger
+   ## @comment = @photo.comments.create(params[:comment])
+   @photo = Photo.find(params[:photo_id])
     if @comment.save
-    redirect_to(:controller => "users", :action => "list_photos", :user_id => @photo.user_id)
+      redirect_to(:controller => "users", :action => "list_photos", :id => @photo.user_id)
     else
-    render("new")
+      render("new")
     end
   end
 end
