@@ -1,36 +1,9 @@
-<%= link_to("Back to list of all users", {:action => "list"}, :class => 'back-link')%>
-
 <div class="subject new">
 	<h2>Create user</h2>
 	<%= form_for(:user, :url => {:action => "create"}) do |f|%>
-	<table summary = "User form fields">
-		<tr>
-			<th>First Name</th>
-			<td><%= f.text_field(:first_name) %></td>
-		</tr>
-		<tr>
-			<th>Last Name</th>
-			<td><%= f.text_field(:last_name) %></td>
-		</tr>
-		<tr>
-			<th>Email address</th>
-			<td><%= f.text_field(:email) %></td>
-		</tr>
-		<tr>
-			<th>User Name</th>
-			<td><%= f.text_field(:user_name) %></td>
-		</tr>
-		<tr>
-			<th>Role</th>
-			<td><%= f.select(:role_id, (0..9).to_a.reverse) %></td>
-		</tr>
-		<tr>
-			<th>Date of birth </th>
-			<td><%= f.text_field(:date_of_birth) %></td>
-		</tr>
-		</table>
+		<%= render(:partial => 'form_user', :locals => {:f => f}) %>
 		<div class="form-button">
-			<%= submit_tag("Create User")	%>
+			<%= submit_tag("Create User") %>
 		</div>
-		<%end%>
-		</div>
+	<%end%>
+</div>

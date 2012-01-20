@@ -1,8 +1,21 @@
 RealSite::Application.routes.draw do
-    #root :to => 'users#list'
-    root :to => 'access#login'
-    resources :photos
-    resources :comments
+  get "home/index"
+  root :to => 'home#index'
+  devise_for :users
+  resources :users, :only => [:index, :show]
+  #   devise_for :users,
+  #          :controllers  => {
+  #           # :registrations => 'my_devise'
+  #           :registrations => 'my_devise/registrations',
+  # :edit => 'my_devise/registrations',
+  # :new => 'my_devise/registrations',
+  # ...
+  #          }
+  #root :to => 'access#login'
+  resources :photos
+  resources :comments
+  #   resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -16,14 +16,15 @@ class CommentsController < ApplicationController
     logger.debug("======================================")
     logger.debug("Controller PhotoComments/Action Create")
     logger.debug("======================================")
-    logger.debug("object #{@user.inspect}")
+    logger.debug("object user #{@user.inspect}")
     logger.debug("======================================")
-    logger.debug("object #{@photo.inspect}")
+    logger.debug("object photo #{@photo.inspect}")
     logger.debug("===================================")
-    puts params.inspect
+    logger.debug("object params #{params.inspect}")
     logger.debug("===================================")
     @comment = Comment.new(params[:comment])
     @comment.photo_id = params[:photo_id]
+    @comment.user_id = current_user.id
     ## @comment.user_id = params[:user_id]
     debugger
    ## @comment = @photo.comments.create(params[:comment])

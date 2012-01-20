@@ -1,0 +1,11 @@
+<% @page_title = "Edit User" %>
+<div class="user edit">
+<h1>Users</h1>
+<table>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.name, user %></td>
+  </tr>
+<% end %>
+</table>
+</div>

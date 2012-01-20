@@ -6,7 +6,7 @@
 				<th>&nbsp;</th>
 				<th>First name</th>
 				<th>Last name</th>
-				<th>User name</th>
+				<th>Name</th>
 				<th>Email</th>
 				<th>Role</th>
 				<th>Date of birth</th>
@@ -18,19 +18,19 @@
 				<td> <%= i+1 %> </td>
 				<td><%= user.first_name %></td>
 				<td><%= user.last_name %></td>
-				<td><%= user.user_name %></td>
+				<td><%= user.name %></td>
 				<td><%= user.email %></td>
-				<td class="center"> <%= user.role_id == 0 ? "Admin":"Loh" %></td>
+				<td class="center"> <%= user.role_id == 0 ? "Admin":"Manager" %></td>
 				<td><%= user.date_of_birth %></td>
 				<td><%=user.status %></td>
 				<td class="action"> 
-					<%= link_to("Edit", {:action => "edit",:id => user.id},:class => "action edit") %>
-					<%= link_to("Delete", {:action => "delete", :id => user.id},:class => "action delete") %> 
-					<%= link_to("All Photos", {:action => "list_photos", :id => user.id},:class => "action list") %>
+					<%= link_to("All Photos", { :action => "list_photos", :id => user.id},:class => "action list") %>
+					<%= link_to("Edit User",       { :action => "edit",   :id => user.id},:class => "action edit") %>
+					<%= link_to("Delete User",     { :action => "delete", :id => user.id},:class => "action delete") %> 
 				</td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to("Add new user", {:action => 'new'}, :class => 'back-link') %>
+		<%= link_to("Add new user", {:action => 'sign_up'}, :class => 'back-link') %>
 	</div>
 </div>

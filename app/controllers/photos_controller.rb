@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   layout 'public'
+  before_filter :authenticate_user!
   def index
     list
     render('list')
@@ -23,7 +24,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(params[:photo])
     @photo.user_id = params[:user_id]
     if @photo.save
-      redirect_to(:controller => "users", :action => "list_photos", :user_id => @photo.user_id)
+      redirect_to(:controller => "users", :action => "list_photos", :id => @photo.user_id)
     else
       render("new")
     end

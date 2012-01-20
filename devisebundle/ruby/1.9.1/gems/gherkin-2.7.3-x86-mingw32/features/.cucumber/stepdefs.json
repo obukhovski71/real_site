@@ -1,0 +1,228 @@
+[
+  {
+    "source": "^they have arrived$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "they have arrived",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^a \"(ruby|native)\" \"([^\\\"]*)\" parser$",
+    "flags": "",
+    "steps": [
+
+    ]
+  },
+  {
+    "source": "^the\\ following\\ text\\ is\\ parsed:$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "the following text is parsed:",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^there\\ should\\ be\\ no\\ parse\\ errors$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "there should be no parse errors",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^there should be a parse error on (line \\d+)$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "there should be a parse error on line 1",
+        "args": [
+          {
+            "offset": 33,
+            "val": "line 1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^there should be parse errors on (lines .*)$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "there should be parse errors on lines 1 and 2",
+        "args": [
+          {
+            "offset": 32,
+            "val": "lines 1 and 2"
+          }
+        ]
+      },
+      {
+        "name": "there should be parse errors on lines 1 through 3",
+        "args": [
+          {
+            "offset": 32,
+            "val": "lines 1 through 3"
+          }
+        ]
+      },
+      {
+        "name": "there should be parse errors on lines 10 and 17",
+        "args": [
+          {
+            "offset": 32,
+            "val": "lines 10 and 17"
+          }
+        ]
+      },
+      {
+        "name": "there should be parse errors on lines 3 and 5",
+        "args": [
+          {
+            "offset": 32,
+            "val": "lines 3 and 5"
+          }
+        ]
+      },
+      {
+        "name": "there should be parse errors on lines 5, 10 and 12",
+        "args": [
+          {
+            "offset": 32,
+            "val": "lines 5, 10 and 12"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^a JSON formatter$",
+    "flags": "",
+    "steps": [
+
+    ]
+  },
+  {
+    "source": "^the outputted JSON should be:$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "the outputted JSON should be:",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^a PrettyFormatter$",
+    "flags": "",
+    "steps": [
+
+    ]
+  },
+  {
+    "source": "^a JSON lexer$",
+    "flags": "",
+    "steps": [
+
+    ]
+  },
+  {
+    "source": "^the following JSON is parsed:$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "the following JSON is parsed:",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^the outputted text should be:$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "the outputted text should be:",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I have Cucumber's source code next to Gherkin's$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I have Cucumber's source code next to Gherkin's",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I find all of the \\.feature files$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I find all of the .feature files",
+        "args": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^I send each prettified original through the \"([^\"]*)\" machinery$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "I send each prettified original through the \"json\" machinery",
+        "args": [
+          {
+            "offset": 45,
+            "val": "json"
+          }
+        ]
+      },
+      {
+        "name": "I send each prettified original through the \"pretty\" machinery",
+        "args": [
+          {
+            "offset": 45,
+            "val": "pretty"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "^the machinery output should be identical to the prettified original$",
+    "flags": "",
+    "steps": [
+      {
+        "name": "the machinery output should be identical to the prettified original",
+        "args": [
+
+        ]
+      }
+    ]
+  }
+]

@@ -1,42 +1,9 @@
+<% @page_title = "Edit User" %>
 <div class="user edit">
+	
   <h2>Update User</h2>
-
-  <%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
-    <table summary="User form fields">
-      <tr>
-        <th>First Name</th>
-        <td><%= f.text_field(:first_name) %></td>
-      </tr>
-      <tr>
-        <th>Last Name</th>
-        <td><%= f.text_field(:last_name) %></td>
-      </tr>
-      <tr>
-        <th>User Name</th>
-        <td><%= f.text_field(:user_name) %></td>
-      </tr>
-      <tr>
-        <th>E-Mail</th>
-        <td><%= f.text_field(:email) %></td>
-      </tr>
-      <tr>
-        <th>Role ID</th>
-        <td><%= f.text_field(:role_id) %></td>
-      </tr>
-      <tr>
-        <th>Date of Birth</th>
-        <td><%= f.text_field(:date_of_birth) %></td>
-      </tr>
-      <tr>
-        <th>Edited at</th>
-        <td><%= f.text_field(:updated_at) %></td>
-      </tr>
-      <tr>
-        <th>Status</th>
-        <td><%= f.text_field(:status) %></td>
-      </tr>
-    </table>
-    
+  <%= form_for( @user, :url => {:action => 'update', :id => params[:id] } ) do |f| %>
+ 	 <%= render( :partial => "form_user", :locals => {:f => f}) %>
     <div class="form-buttons">
       <%= submit_tag("Update User") %>
     </div>
