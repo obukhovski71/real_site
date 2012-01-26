@@ -1,13 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable  ##, :confirmable
   # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :email, :password, :password_confirmation, :name, :last_name, :first_name, :date_of_birth
-  validates_presence_of :name
+  attr_accessible :email, :name, :last_name, :first_name, :date_of_birth, :remember_me, :password, :password_confirmation
+  validates_presence_of :name, :last_name, :first_name
   validates_uniqueness_of :name, :email, :case_sensitive => false
-  # later try to play with this:
   # has_friendly_id :name, :use_slug => true, :strip_non_ascii => true
   
   has_many :photo_users
@@ -15,8 +14,11 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :events
 
-  attr_accessor :password
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]\.[A-Z{2,4}$]/i
+  
+  def full_name
+    return first_name + " " + last_name
+  end
   
 # Setup accessible (or protected) attributes for your model
   #attr_accessible :email, :encrypted_password, :role_id,:user_name, :first_name, :last_name, :date_of_birth

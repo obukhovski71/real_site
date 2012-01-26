@@ -3,7 +3,7 @@
 	
   <h2>Update User</h2>
   <%= form_for( @user, :url => {:action => 'update', :id => params[:id] } ) do |f| %>
- 	 <%= render( :partial => "form_user", :locals => {:f => f}) %>
+ 	 <%= render( :partial => "shared/form_user", :locals => {:f => f}) %>
     <div class="form-buttons">
       <%= submit_tag("Update User") %>
     </div>

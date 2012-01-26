@@ -1,10 +1,8 @@
 class PhotosController < ApplicationController
   layout 'public'
-  before_filter :authenticate_user!
-  def index
-    list
-    render('list')
-  end
+  ## before_filter :authenticate_user!
+    before_filter :authenticate_user!, :except => [:index, :show]
+
   def new
     logger.debug("Controller Photos/Action New") 
     puts params.inspect

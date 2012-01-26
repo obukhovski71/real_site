@@ -3,24 +3,24 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title><%= @page_title || 'Admin Area' %> A. Обуховский || Админ</title>
+		<title><%= @page_title || 'Personal site' %> A. Обуховский || Админ</title>
 		<%= stylesheet_link_tag    "admin" %>
-		<%= javascript_include_tag "application" %>
-		<%= csrf_meta_tags %>
+		<%= javascript_include_tag :application %>
+	    <%= csrf_meta_tags %>
 		<meta name="author" content="Abukhovski">
 	</head>
 	<body>
 		<div id="user_nav">
 			<% if user_signed_in? %>
-			Signed in as <%= current_user.email %>. Not you?
-			<%= link_to "Sign out", destroy_user_session_path %>
+			Signed in as <%= current_user.full_name %>. Not you?
+			<%= link_to "Sign out", destroy_user_session_path, :method => "delete" %>
 			<% else %>
 			<%= link_to "Sign up", new_user_registration_path %> or
 			<%= link_to "Sign in", new_user_session_path %>
 			<% end %>
 		</div>
 		<div id="header">
-			<h1>Andrei's News</h1>
+			<h1>Andrei's admin News</h1>
 			<%= link_to("List of all users", {:controller => "users"})%>
 		</div>
 		<div id="main">
@@ -29,6 +29,11 @@
 				<%= flash[:notice] %>
 			</div>
 			<% end %>
+			<% if !flash[:alert].blank? %>
+			<div class="alert">
+            	<p>flash[:alert]</p>
+            </div>
+			<% end %>	
 			<div id="content">
 				<%= yield %>
 			</div>

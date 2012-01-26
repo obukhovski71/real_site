@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   layout 'admin'
+  before_filter :authenticate_user!  ##, :except => [:index, :show]
   def index
     list
     render('list')
@@ -19,9 +20,9 @@ class UsersController < ApplicationController
 #    @users = User.all
 #  end
 #
-  def show
-    @user = User.find(params[:id])
-  end
+#  def show
+#    @user = User.find(params[:id])
+#  end
 
   def create
     logger.debug("params[:user_name]------ #{params[:user_name]}")
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+  def edit_custom
     @user = User.find(params[:id])
   end
 
@@ -46,6 +47,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    logger.debug("def update}")
+    logger.debug("===================================")
+    logger.debug("#{params.inspect}")
+    logger.debug("===================================")
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
     flash[:notice] = "User data has been updated"
