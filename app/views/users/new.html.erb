@@ -1,6 +1,6 @@
 <div class="subject new">
 	<h2>Create user</h2>
-	<%= form_for(:user, :url => {:action => "create"}) do |f|%>
+	<%= form_for(:user, :html => {:multipart => true}, :url => {:action => "create"}) do |f|%>
 		<%= render(:partial => 'form_user', :locals => {:f => f}) %>
 		<div class="form-button">
 			<%= submit_tag("Create User") %>

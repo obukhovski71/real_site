@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   def list
     @users = User.order("users.last_name ASC")
+    @users.each do |u|
+      logger.debug("#{u.name}")
+      logger.debug("#{u.avatar.inspect}")
+      logger.debug("===================================")
+    end
   end
 
   def list_photos
@@ -56,7 +61,9 @@ class UsersController < ApplicationController
     flash[:notice] = "User data has been updated"
     redirect_to(:action => 'index')
     else
-    render('edit')
+      flash[:notice] = "Fail to update user"
+      debugger
+      render('edit_custom')
     end
   end
 

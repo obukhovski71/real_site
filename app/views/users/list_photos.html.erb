@@ -1,6 +1,5 @@
 <div class="user photos list">
 	<h2>Users Photos</h2>
-		<%= debug @user %>
 	<div class="table">
 		<table class="listing" summary="User photos">
 			<tr class="header">
@@ -8,7 +7,6 @@
 				<th>Photos</th>
 			</tr>
 			<% @photos.each_with_index do |photo,i| %>
-			<%= debug photo %>
 			<tr>
 				<td> <%= i+1 %> </td>
 				<td>

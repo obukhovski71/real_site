@@ -18,7 +18,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "rake", "~> 0.9.2.2"
+gem "rake"   , "~> 0.9.2.2"
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -26,8 +26,8 @@ gem "rake", "~> 0.9.2.2"
 # gem 'capistrano'
 
 # To use debugger
- gem 'ruby-debug19' ##, :require => 'ruby-debug'
-
+gem 'ruby-debug19' ##, :require => 'ruby-debug'
+gem "paperclip", "~> 2.0"
 #group :test do
 #  # Pretty printed test output
 #  gem 'turn', :require => false

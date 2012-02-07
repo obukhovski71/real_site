@@ -1,18 +1,23 @@
-<p><%= f.label :name %><br />
+<p><%= f.label :name %><br/>
 <%= f.text_field :name %></p>
 
-<div><%= f.label :email %><br />
+<div><%= f.label :email %><br/>
 <%= f.email_field :email %></div>
 
-<div><%= f.label :first_name %><br />
+<div><%= f.label :first_name %><br/>
 <%= f.text_field :first_name %></div>
 
-<div><%= f.label :last_name %><br />
+<div><%= f.label :last_name %><br/>
 <%= f.text_field :last_name %></div>
 
-<div><%= f.label :role_id %><br />
+<div><%= f.label :role_id %><br/>
 <%= f.select(:role_id, (0..9).to_a.reverse) %></div>
 
-<div><%= f.label :date_of_birth %><br />
-<%= f.text_field(:date_of_birth)%></div>		
+<div><%= f.label :date_of_birth %><br/>
+<%= f.text_field(:date_of_birth)%></div>
+
+<div class = "field">
+	<%= f.label :avatar%><br/>
+	<%= f.file_field :avatar%>
+</div>	
 		

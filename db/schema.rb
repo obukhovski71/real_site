@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122213316) do
+ActiveRecord::Schema.define(:version => 20120205064900) do
 
   create_table "comment_photos", :force => true do |t|
     t.text     "body"
@@ -94,6 +94,10 @@ ActiveRecord::Schema.define(:version => 20120122213316) do
     t.string   "last_sign_in_ip"
     t.string   "password_salt",          :limit => 128, :default => "", :null => false
     t.string   "name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

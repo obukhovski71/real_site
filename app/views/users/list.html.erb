@@ -4,6 +4,7 @@
 		<table class="listing" summary="User list">
 			<tr class="header">
 				<th>&nbsp;</th>
+				<th>Avatar</th>
 				<th>First name</th>
 				<th>Last name</th>
 				<th>Name</th>
@@ -16,6 +17,13 @@
 			<% @users.each_with_index do |user,i| %>
 			<tr>
 				<td> <%= i+1 %> </td>
+				<td>
+					<% if user.avatar? %>
+						<%= image_tag user.avatar.url %>
+						</br>
+						<%= link_to(user.avatar.url, user.avatar.url)%>
+					<% end %>
+				</td>
 				<td><%= user.first_name %></td>
 				<td><%= user.last_name %></td>
 				<td><%= user.name %></td>
