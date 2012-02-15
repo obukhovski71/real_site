@@ -1,0 +1,19 @@
+<div class="user photos list">
+	<h2>Users Events</h2>
+	<%= debug @events%>
+	<div class="table">
+		<table class="listing" summary="User photos">
+			<tr class="header">
+				<th>&nbsp;</th>
+				<th>Events</th>
+			</tr>
+			<% @events.each_with_index do |e,i| %>
+			<tr>
+				<td> <%= i+1 %> </td>
+				<td> <%= link_to("#{e.title}",{:action => 'new', :user_id => params[:id]}:class =>"list-events")%> </td>
+			</tr>
+			<% end %>
+		</table>
+		<%= link_to("Add new event", {:action => 'new', :user_id => params[:id]}, :class => 'back-link') %>
+	</div>
+</div>

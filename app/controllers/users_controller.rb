@@ -9,31 +9,24 @@ class UsersController < ApplicationController
   def list
     @users = User.order("users.last_name ASC")
     @users.each do |u|
-      logger.debug("#{u.name}")
-      logger.debug("#{u.avatar.inspect}")
-      logger.debug("===================================")
+    ##  logger.debug("#{u.name}")
     end
   end
 
   def list_photos
-    @photos = Photo.where(:user_id => params[:id]).order("photos.date ASC")
-    @user = User.where(:id => params[:id])
-    logger.debug ("test test")
+    @user = User.where(:id => params[:id]).first
+    @photos =  @user.photos
+    debugger
+    logger.debug ("test action => list_photos, controller => users_controller  #{@photos.inspect}")
   end
-
-#  def index
-#    @users = User.all
-#  end
-#
-#  def show
-#    @user = User.find(params[:id])
-#  end
+  def list_events
+    @user = User.where(:id => params[:id]).first
+    @events = @user.events
+    ## logger.debug ("test action => list_events user: #{@user.inspect}")
+  end  
 
   def create
-    logger.debug("params[:user_name]------ #{params[:user_name]}")
-    logger.debug("===================================")
-    logger.debug("#{params.inspect}")
-    logger.debug("===================================")
+    ## logger.debug("#{params.inspect}")
     @user = User.new(params[:user])
     if @user.save
     redirect_to(:action => "index")
@@ -52,10 +45,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    logger.debug("def update}")
-    logger.debug("===================================")
-    logger.debug("#{params.inspect}")
-    logger.debug("===================================")
+    ## logger.debug("#{params.inspect}")
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
     flash[:notice] = "User data has been updated"

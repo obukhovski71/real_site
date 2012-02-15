@@ -29,8 +29,10 @@ class CommentsController < ApplicationController
     debugger
    ## @comment = @photo.comments.create(params[:comment])
    @photo = Photo.find(params[:photo_id])
-    if @comment.save
-      redirect_to(:controller => "users", :action => "list_photos", :id => @photo.user_id)
+  ##  if @comment.save
+    if @photo.comments << @comment
+      flash[:notice] = "Comment has been created"
+      redirect_to(:controller => "users", :action => "list_photos", :id => current_user.id)
     else
       render("new")
     end

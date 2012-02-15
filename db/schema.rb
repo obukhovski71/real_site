@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205064900) do
+ActiveRecord::Schema.define(:version => 20120215063418) do
 
   create_table "comment_photos", :force => true do |t|
     t.text     "body"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120205064900) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status",      :default => 0
+    t.date     "date"
   end
 
   create_table "first_page_posts", :force => true do |t|
@@ -48,7 +49,35 @@ ActiveRecord::Schema.define(:version => 20120205064900) do
 
   add_index "photo_events", ["photo_id", "event_id"], :name => "index_photo_events_on_photo_id_and_event_id"
 
-  create_table "photo_users", :force => true do |t|
+  create_table "photos", :force => true do |t|
+    t.text     "description",          :default => ""
+    t.date     "date",                 :default => '2011-11-16', :null => false
+    t.string   "geo_location"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title",                :default => "no present"
+    t.integer  "status",               :default => 0
+    t.integer  "event_id"
+    t.string   "c_image_file_name"
+    t.string   "c_image_content_type"
+    t.integer  "c_image_file_size"
+    t.datetime "c_image_updated_at"
+  end
+
+  add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
+
+  create_table "user_events", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_events", ["user_id", "event_id"], :name => "index_user_events_on_user_id_and_event_id"
+
+  create_table "user_photos", :force => true do |t|
     t.integer  "photo_id"
     t.integer  "user_id"
     t.string   "summary"
@@ -56,23 +85,7 @@ ActiveRecord::Schema.define(:version => 20120205064900) do
     t.datetime "updated_at"
   end
 
-  add_index "photo_users", ["user_id", "photo_id"], :name => "index_photo_users_on_user_id_and_photo_id"
-
-  create_table "photos", :force => true do |t|
-    t.text     "description",  :default => ""
-    t.date     "date",         :default => '2011-11-16', :null => false
-    t.string   "path"
-    t.string   "geo_location"
-    t.integer  "user_id"
-    t.integer  "height"
-    t.integer  "width"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title",        :default => "no present"
-    t.integer  "status",       :default => 0
-  end
-
-  add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
+  add_index "user_photos", ["user_id", "photo_id"], :name => "index_photo_users_on_user_id_and_photo_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

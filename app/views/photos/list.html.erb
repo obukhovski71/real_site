@@ -1,6 +1,5 @@
 <div class="user photos list">
 	<h2>Users Photos</h2>
-		<%= debug @photo %>
 		<%= debug @user %>
 	<div class="table">
 		<table class="listing" summary="User photos">
@@ -13,7 +12,11 @@
 				<td> <%= i+1 %> </td>
 				<td>
 				<table class = "single photo">
-				<td><%= image_tag('rails.png',:size => '50x64', :alt => "User X Photo")%></td>
+				<td><% if photo.c_image? %>
+						<%= image_tag photo.c_image.url(:regular) %>
+						</br>
+						<%= link_to(photo.c_image.url, photo.c_image.url)%>
+					<% end %></td>
 				<td>
 					<table class = "photo description">
 						<tr>
@@ -24,6 +27,11 @@
 						</tr>
 						<tr>
 							<td><%= photo.geo_location %></td>
+						</tr>
+						<tr>
+							<td>
+								
+							</td>
 						</tr>
 						
 						<tr>

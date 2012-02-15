@@ -1,0 +1,22 @@
+<div class="photo new">
+	<h2>Добавить событие</h2>
+	<%= form_for(:event, :url => {:action => 'create', :user_id => params[:user_id]}) do |e|%>
+	<table summary = "Event Fields">
+		<tr>
+			<th>Название</th>
+			<td><%= e.text_field(:title) %></td>
+		</tr>
+		<tr>
+			<th>Описание</th>
+			<td><%= e.text_field(:description) %></td>
+		</tr>
+		<tr>
+			<th>Когда</th>
+			<td><%= f.text_field(:date) %></td>
+		</tr>
+	</table>
+	<div class="form-button">
+		<%= submit_tag("Создать событие")%>
+	</div>
+	<%end%>
+</div>
