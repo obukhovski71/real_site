@@ -1,0 +1,11 @@
+<div class = "comment new">
+	<%= form_for(@comment, :url => {:action => 'create', :photo_id => @photo.id}) do |f|%>
+	<table summary = "Photo form fields">
+		<tr>
+			<th>Your comment</th>
+			<td><%= f.text_field(:body) %></td>
+			<td><%= submit_tag("Submit Comment")%></td>
+		</tr>
+	</table>
+	<%end%>
+</div>

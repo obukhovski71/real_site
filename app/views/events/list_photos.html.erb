@@ -1,11 +1,12 @@
 <div class="user photos list">
-	<h2>Users Photos</h2>
+	<h2>Фотографии с <%= @event.title%></h2>
 	<div class="table">
 		<table class="listing" summary="User photos">
 			<tr class="header">
 				<th>&nbsp;</th>
-				<th>Photos</th>
+				<th>Фотографии</th>
 			</tr>
+			<%params[:event_list_photos] = params[:id]%>
 			<% @photos.each_with_index do |photo,i| %>
 			<tr>
 				<td> <%= i+1 %> </td>
@@ -13,6 +14,6 @@
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to("Add new photo", {:controller => 'photos', :action => 'new', :user_id => params[:id]}, :class => 'back-link') %>
+		<%= link_to("Добавить фотографию", {:controller => 'photos', :action => 'new_event_photo', :event_id => params[:event_id]}, :class => 'back-link') %>
 	</div>
 </div>

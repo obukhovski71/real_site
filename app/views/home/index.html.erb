@@ -1,25 +1,3 @@
-<h1>Home Page -- index</h1>
-<p>
-	Find me in app/views/home/index.html.erb
-</p>
-<% if !flash[:notice].blank? %>
-<div class="notice">
-	<%= flash[:notice] %>
-</div>
-<% end %>
-<% if !flash[:alert].blank? %>
-<div class="alert">
-	<p>
-		<%= flash[:alert] %>
-	</p>
-</div>
-<% end %>
-<p>
-	<%= link_to("Sign Up", {:controller => "users", :action => "sign_up", :class => 'back-link'})%>
-</p>
-<p>
-	<%= link_to("Sign In", {:controller => "users", :action => "sign_in", :class => 'back-link'})%>
-</p>
-<p>
-	<%= link_to "View List of Users", users_path %>
-</p>
+<h1>Мои новости и фото</h1>
+
+

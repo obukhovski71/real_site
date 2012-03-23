@@ -1,7 +1,7 @@
 <div class="photo new">
-	<h2>Add photo</h2>
+	<h2>Добавить фотографию</h2>
 	<% debug @photo %>
-	<%= form_for(:photo, :url => {:action => 'create', :user_id => params[:user_id]}) do |f|%>
+	<%= form_for(:photo, :url => {:action => 'create_event_photo', :event_id => @event.id}) do |f|%>
 	<%= render(:partial => 'form_new_photo', :locals => {:f => f}) %>
 	<div class="form-button">
 		<%= submit_tag("Добавить фотографию")	%>

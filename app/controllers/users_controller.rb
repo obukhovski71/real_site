@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   layout 'admin'
   before_filter :authenticate_user!  ##, :except => [:index, :show]
+  before_filter :check_for_cancel, :only => [:create, :edit_custom]
   def index
     list
     render('list')
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
+  
   def update
     ## logger.debug("#{params.inspect}")
     @user = User.find(params[:id])
@@ -56,7 +57,7 @@ class UsersController < ApplicationController
       render('edit_custom')
     end
   end
-
+  
   def delete
     @user = User.find(params[:id]).delete
     redirect_to(:action => "index")
@@ -66,4 +67,9 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     redirect_to(:action => "index")
   end
+  def check_for_cancel
+     if params[:commit] && params[:commit].downcase == 'cancel'
+       redirect_to(:action => "list")
+     end
+  end  
 end

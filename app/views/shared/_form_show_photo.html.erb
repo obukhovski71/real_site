@@ -1,0 +1,40 @@
+<div id="commentform" title="Comment" ></div>
+<table class = "single photo">
+	<% if photo.c_image? %>
+	<%= image_tag photo.c_image.url(:regular) %>
+	</br>
+	<%= link_to(photo.c_image.url, photo.c_image.url)%>
+	<% end %>
+	<table class = "photo description" id = <%= photo.id%>>
+		<tr>
+			<td><%= photo.date %></td>
+		</tr>
+		<tr>
+			<td><%= photo.title %></td>
+		</tr>
+		<%if photo && photo.comments%>
+		<% photo.comments.each do |c| %>
+		<tr>
+			<td> <%= c.body%> </td>
+		</tr>
+		<%end%>
+		<%else%>
+		<tr>
+			<td> <%= "no comments available for the photo"%> </td>
+		</tr>
+		<%end%>
+		<tr>
+			<td><% photo.geo_location %></td>
+		</tr>
+		<tr>
+			<td class="action">
+			<div class = 'newComment'>
+				<%= link_to("Add Comment", {:controller => "comments", :action => "new", :photo_id => photo.id}, :remote => true,:class => "action add comment") %>
+			</div>
+			</td>
+		</tr>
+	</table>
+</table>
+	
+
+
