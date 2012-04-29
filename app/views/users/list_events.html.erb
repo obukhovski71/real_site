@@ -3,14 +3,14 @@
 	<div class="table">
 		<table class="listing" summary="User events">
 			<tr class="header">
-				<th>&nbsp;</th>
 				<th>Что было?</th>
 			</tr>
 			<% @events.each_with_index do |event,i| %>
 			<tr>
-				<%= link_to("#{event.title}. Смотреть все фотографии",{:controller => "events", :action => "list_photos", :event_id => event.id},:class => "list event photos") %>			
+				<td>
+				<%= link_to("#{event.title}. Смотреть все фотографии",{:controller => "events", :action => "list_photos", :event_id => event.id},:class => "list event photos") %>
+				</td>		
 			</tr>
-			</br>
 			<% end %>
 		</table>
 		<%= link_to("Есть что добавить?", {:controller => 'event', :action => 'new', :user_id => params[:id]}, :class => 'back-link') %>

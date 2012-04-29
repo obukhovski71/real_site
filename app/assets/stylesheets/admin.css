@@ -1,0 +1,44 @@
+body
+{
+background-color:#d0e4fe;
+}
+
+$blue: #3bbfce;
+$margin: 16px;
+
+.photo_description {
+  border-color: $blue;
+  color: darken($blue, 9%);
+}
+
+#commentform {
+  padding: $margin / 2;
+  margin: $margin ;
+  border-color: $blue;
+}
+#comment_dialog {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: $margin / 2;
+  margin: $margin ;
+}
+
+/* CRUD */
+.notice { height: 1.25em; padding: 0.5em; text-align: center;
+  background: #B6D491; color: #4C2516; }
+.back-link { font-size: 0.8em; margin-bottom: 1em; }
+.form-buttons { text-align: center; margin: 1em 0; }
+.list table { clear: both; width: 100%; }
+.list table tr td { border: 2px solid #666666; }
+.show table { clear: both; margin: 0 200px; width: 300px; }
+.show table.wide { width: 600px; margin: 0 50px; }
+.show table tr th { white-space: nowrap; padding-right: 5px;}
+.show table tr td { border: 1px solid #666666; }
+.edit table, .new table { margin: 0 auto; }
+
+.description table th tr {border: 0px solid #666666; margin: 0 50px;}
+
+td.singlecomment{border: 0px solid #666666;}
+
+

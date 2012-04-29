@@ -13,9 +13,18 @@ RealSite::Application.routes.draw do
   # ...
   #          }
   #root :to => 'access#login'
-  resources :photos
+  resources :photos do
+    get "new_event_photo", :on => :collection
+  end
   resources :comments
-  resources :events
+  match '/views/comments/new', :to => 'comments#create'
+  get "comments/create"
+  ## resources :events
+  resource :event do
+  # Route GET /user/admin_login
+  get 'new', :on => :collection
+end
+  
   #   resources :users
 
   # The priority is based upon order of creation:

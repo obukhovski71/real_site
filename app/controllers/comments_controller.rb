@@ -10,18 +10,15 @@ class CommentsController < ApplicationController
     logger.debug("===================================")
     logger.debug("object referral url #{request.env["HTTP_REFERER"].inspect}")
     logger.debug("===================================")
-    if request.env["HTTP_REFERER"] =~ /event_id=/
-      @referrer_page_list_photos_event = request.env["HTTP_REFERER"].match(/event_id=(\w)*/)[1].strip
-    else
-      @referrer_page_list_photos_event = false
-    end
-    logger.debug("===================================")
-    logger.debug("object referral url <#{@referrer_page_list_photos_event}>")
-    logger.debug("===================================")
+  ##  if request.env["HTTP_REFERER"] =~ /event_id=/
+  ##    @referrer_page_list_photos_event = request.env["HTTP_REFERER"].match(/event_id=(\w)*/)[1].strip
+  ##  else
+  ##    @referrer_page_list_photos_event = false
+  ##  end
     @photo = Photo.find(params[:photo_id])
     @comment = Comment.new(:photo_id => params[:photo_id])
     respond_to do |format|
-      format.html # show.html.erb
+    ##  format.html # show.html.erb
       format.xml  { render :xml => @project }  
       format.js {render :layout => false} 
     end  

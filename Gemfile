@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-
+gem 'jquery-rails', '>= 1.0.12'
+gem 'rails-asset-jqueryui'
 # gem 'devisebundle show'
 gem "devise"
 # Bundle edge Rails instead:
@@ -17,7 +18,6 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
 gem "rake"   , "~> 0.9.2.2"
 # Use unicorn as the web server
 # gem 'unicorn'

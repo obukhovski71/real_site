@@ -1,11 +1,15 @@
-<div id="commentform" title="Comment" ></div>
-<table class = "single photo">
+<div class = "commentform"></div>
+<div class = "left">
 	<% if photo.c_image? %>
 	<%= image_tag photo.c_image.url(:regular) %>
-	</br>
 	<%= link_to(photo.c_image.url, photo.c_image.url)%>
 	<% end %>
-	<table class = "photo description" id = <%= photo.id%>>
+</div>
+<div class = "right">
+	<table class = "photodescription">
+		<tr>
+			<th>Фото факты</th>
+		</tr>
 		<tr>
 			<td><%= photo.date %></td>
 		</tr>
@@ -28,13 +32,8 @@
 		</tr>
 		<tr>
 			<td class="action">
-			<div class = 'newComment'>
-				<%= link_to("Add Comment", {:controller => "comments", :action => "new", :photo_id => photo.id}, :remote => true,:class => "action add comment") %>
-			</div>
+				<%= link_to("Add Comment", {:controller => "comments", :action => "new", :photo_id => photo.id}, :remote => true,:class => "addcomment") %>
 			</td>
 		</tr>
 	</table>
-</table>
-	
-
-
+</div>

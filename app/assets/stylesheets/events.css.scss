@@ -1,3 +1,17 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$blue: #3bbfce;
+$margin: 16px;
+
+.photo_description {
+  border-color: $blue;
+  color:
+  darken($blue, 9%);
+}
+
+#commentform {
+  padding: $margin / 2;
+  margin: $margin / 2;
+  border-color: $blue;
+}

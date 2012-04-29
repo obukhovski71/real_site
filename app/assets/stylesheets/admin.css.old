@@ -1,6 +1,12 @@
 /* Admin stylesheet       */
 /* loads after public.css */
 
+body
+{
+background-color:#d0e4fe;
+}
+
+
 /* Structure */
 #content { padding-left: 100px; padding-right: 100px; }
 #content h2 { width: 760px; text-align: center; }
@@ -61,3 +67,29 @@ span.status.false { background: red; color: red; }
 #errorExplanation p { color: #333333; margin: 0; padding: 3px 0.5em; }
 #errorExplanation ul { margin-top: 0; }
 #errorExplanation ul li { list-style: square; }
+
+
+
+
+//
+
+$blue: #3bbfce;
+$margin: 16px;
+
+.photo_description {
+  border-color: $blue;
+  color: darken($blue, 9%);
+}
+
+#commentform {
+  padding: $margin / 2;
+  margin: $margin ;
+  border-color: $blue;
+}
+#comment_dialog {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: $margin / 2;
+  margin: $margin ;
+}

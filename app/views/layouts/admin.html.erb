@@ -1,17 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title><%= @page_title || 'Personal site' %> A. Обуховский || Админ</title>
+		<%= stylesheet_link_tag  'jquery-ui-1.8.19.custom.css' %>
 		<%= stylesheet_link_tag    "admin" %>
-		<%= javascript_include_tag :application %>
-		<%= javascript_include_tag 'jquery-ui' %>
+		<%= javascript_include_tag :application %>	
+		<%= javascript_include_tag  'jquery', 'jquery-ui'%>
 		<%= csrf_meta_tags %>
-		<meta name="author" content="Abukhovski">
+		<meta name="author" content="Abukhovski"/>
 	</head>
 	<body>
-		<div id="user_nav">
+		<div class="user_nav">
 			<% if user_signed_in? %>
 			Signed in as <%= current_user.full_name %>. Not you?
 			<%= link_to "Log out", destroy_user_session_path, :method => "delete" %>
@@ -25,9 +25,8 @@
 			<%= link_to "Sign in", new_user_session_path %>
 			<% end %>
 		</div>
-		<div id="header">
-		</div>
-		<div id="main">
+		<div class="header"></div>
+		<div class="main">
 			<% if !flash[:notice].blank? %>
 			<div class="notice">
 				<%= flash[:notice] %>
