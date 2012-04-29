@@ -1,7 +1,0 @@
-$("#commentform:first").dialog({
-modal: true,
-title: 'Comment',
-open: function() {
-$("#commentform:first").html("<%= escape_javascript(render :partial => 'form_comment') %>")
-},
-});
