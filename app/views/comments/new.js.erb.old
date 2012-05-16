@@ -1,16 +1,14 @@
 var mytext = "<%= escape_javascript(render :partial => 'form_comment') %>";
-$("#commentdialog").html(mytext);
-$("#commentdialog").dialog({
+
+$(".addcomment").dialog({
 	modal: true,
 	title: ' Type your comment  ',
 	height: 100,
 	width: 600,
 	position: 'top',
 	open: function() {
-			$(".commentdialog").dialog('open')
-		},
+	$(".addcomment").html(mytext)
+	},
 	close: function(event, ui) {
-			$("#commentdialog").remove();
-		}
-		
-}); 
+		$(".addcomment").remove(); }
+});

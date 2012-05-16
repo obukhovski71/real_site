@@ -1,13 +1,10 @@
 class CommentsController < ApplicationController
-  respond_to do |format|
-    format.html # show.html.erb
-    format.xml  { render :xml => @project }  
-    format.js {render :layout => false} 
-  end  
+ # respond_to do |format|
+ #   format.html # show.html.erb
+ #   format.xml  { render :xml => @project }  
+ #   format.js {render :layout => false} 
+ # end  
   def new
-    logger.debug("===================================")
-    logger.debug("Controller PhotoComments/Action New")
-    logger.debug("===================================")
     logger.debug("object referral url #{request.env["HTTP_REFERER"].inspect}")
     logger.debug("===================================")
   ##  if request.env["HTTP_REFERER"] =~ /event_id=/
@@ -41,7 +38,6 @@ class CommentsController < ApplicationController
     end
     logger.debug("===================================")
     logger.debug("object params #{params.inspect}")
-
     logger.debug("===================================")
     if @photo.comments << @comment
       flash[:notice] = "Comment has been created"
@@ -49,5 +45,14 @@ class CommentsController < ApplicationController
     else
       render("new")
     end
+  end
+  def delete
+    logger.debug("===================================")
+    logger.debug("object params #{params.inspect}")
+    logger.debug("===================================")
+    @user = Comment.find(params[:id]).delete
+    ## render(:controller => "users", :action => "list_photos", :id => params[:user_id])
+    flash[:notice] = "comment has been deleted"
+    redirect_to(:controller => "users", :action => "list_photos", :id => params[:user_id])
   end
 end

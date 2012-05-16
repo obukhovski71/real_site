@@ -1,10 +1,10 @@
+$blue: #3bbfce;
+$margin: 16px;
+
 body
 {
 background-color:#d0e4fe;
 }
-
-$blue: #3bbfce;
-$margin: 16px;
 
 .photo_description {
   border-color: $blue;
@@ -40,5 +40,3 @@ $margin: 16px;
 .description table th tr {border: 0px solid #666666; margin: 0 50px;}
 
 td.singlecomment{border: 0px solid #666666;}
-
-

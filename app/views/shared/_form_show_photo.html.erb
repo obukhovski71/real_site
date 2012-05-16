@@ -9,31 +9,38 @@
 	<table class = "photodescription">
 		<tr>
 			<th>Фото факты</th>
+			<th></th>
 		</tr>
 		<tr>
 			<td><%= photo.date %></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><%= photo.title %></td>
+			<td></td>
 		</tr>
 		<%if photo && photo.comments%>
 		<% photo.comments.each do |c| %>
 		<tr>
 			<td> <%= c.body%> </td>
+			<td><%= link_to("Delete Comment", {:controller => "comments", :action => "delete", :id => c.id, :user_id => 12}, :remote => true,:class => "deletecomment") %></td>
 		</tr>
 		<%end%>
 		<%else%>
 		<tr>
 			<td> <%= "no comments available for the photo"%> </td>
+			<td></td>
 		</tr>
 		<%end%>
 		<tr>
 			<td><% photo.geo_location %></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td class="action">
 				<%= link_to("Add Comment", {:controller => "comments", :action => "new", :photo_id => photo.id}, :remote => true,:class => "addcomment") %>
 			</td>
+			<td></td>
 		</tr>
 	</table>
 </div>

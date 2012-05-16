@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def list_photos
     @user = User.where(:id => params[:id]).first
+    User.connection.clear_query_cache
     @photos =  @user.photos
     debugger
     logger.debug ("test action => list_photos, controller => users_controller  #{@photos.inspect}")
