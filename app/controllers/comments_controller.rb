@@ -1,9 +1,5 @@
 class CommentsController < ApplicationController
- # respond_to do |format|
- #   format.html # show.html.erb
- #   format.xml  { render :xml => @project }  
- #   format.js {render :layout => false} 
- # end  
+  respond_to :js, :html
   def new
     logger.debug("object referral url #{request.env["HTTP_REFERER"].inspect}")
     logger.debug("===================================")
@@ -16,8 +12,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(:photo_id => params[:photo_id])
     respond_to do |format|
     ##  format.html # show.html.erb
-      format.xml  { render :xml => @project }  
-      format.js {render :layout => false} 
+    ##  format.xml { render :xml => @project}  
+      format.js  {render :layout => false} 
     end  
   end
 
@@ -50,9 +46,22 @@ class CommentsController < ApplicationController
     logger.debug("===================================")
     logger.debug("object params #{params.inspect}")
     logger.debug("===================================")
-    @user = Comment.find(params[:id]).delete
-    ## render(:controller => "users", :action => "list_photos", :id => params[:user_id])
+    if  params[:referrer_page_list_photos_event]
+      referer_controller = "events"
+      id = params[:referrer_page_list_photos_event]
+    else
+      referer_controller = "users"
+      id = current_user.id
+    end
+    Comment.find(params[:id]).delete
     flash[:notice] = "comment has been deleted"
-    redirect_to(:controller => "users", :action => "list_photos", :id => params[:user_id])
+    ## redirect_to(:controller => referer_controller, :action => "list_photos", :id => id)
+    ## redirect_to(:controller => "users", :action => "list_photos", :id => params[:user_id])
+    ## redirect_to(:controller => referer_controller, :action => "list_photos", :id => id)
+    respond_to do |format|
+    ##  format.html {redirect_to "users", :action => "list_photos", :id => params[:user_id]}
+    ##  format.xml  {render :xml => @project}  
+      format.js   {render :layout => false} 
+    end  
   end
 end

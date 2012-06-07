@@ -21,8 +21,8 @@
 		</tr>
 		<%if photo && photo.comments%>
 		<% photo.comments.each do |c| %>
-		<tr>
-			<td> <%= c.body%> </td>
+		<tr id = <%=c.id%>>
+			<td class = "comment" > <%= c.body%> </td>
 			<td><%= link_to("Delete Comment", {:controller => "comments", :action => "delete", :id => c.id, :user_id => 12}, :remote => true,:class => "deletecomment") %></td>
 		</tr>
 		<%end%>

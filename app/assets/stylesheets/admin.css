@@ -1,27 +1,33 @@
-$blue: #3bbfce;
-$margin: 16px;
-
 body
 {
-background-color:#d0e4fe;
+background-color:#3bbfce;
 }
-
+.deletecomment{
+	font-family: serif;
+  	font-weight: bold;
+  	font-size: 0.7em;
+	color: blue;
+}
 .photo_description {
-  border-color: $blue;
-  color: darken($blue, 9%);
+  border-color: #3bbfce;
+  color: blue;
 }
-
+.comment{
+	font-family: serif;
+  	font-size: 1.1em;
+	color: blue;
+}
 #commentform {
-  padding: $margin / 2;
-  margin: $margin ;
-  border-color: $blue;
+  padding: 8px;
+  margin: 16px ;
+  border-color: #3bbfce;
 }
-#comment_dialog {
+.comment_dialog {
   font-family: serif;
   font-weight: bold;
   font-size: 1.2em;
-  padding: $margin / 2;
-  margin: $margin ;
+  padding: 8px;
+  margin: 16px  ;
 }
 
 /* CRUD */
