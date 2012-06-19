@@ -17,8 +17,10 @@ RealSite::Application.routes.draw do
     get "new_event_photo", :on => :collection
   end
   resources :comments
-  match '/views/comments/new', :to => 'comments#create'
-  get "comments/create"
+  # match '/views/comments/new', :to => 'comments#create'
+  # match '/views/comments/delete', :to => 'comments#delete' 
+  ## get "comments/create"
+  ## get "comments/delete"
   ## resources :events
   resource :event do
   # Route GET /user/admin_login

@@ -1,14 +1,7 @@
-var mytext = "<%= escape_javascript(render :partial => 'form_comment') %>";
+// alert("delete.js.erb got called");
+//console.log("1");
 
-$(".addcomment").dialog({
-	modal: true,
-	title: ' Type your comment  ',
-	height: 100,
-	width: 600,
-	position: 'top',
-	open: function() {
-	$(".addcomment").html(mytext)
-	},
-	close: function(event, ui) {
-		$(".addcomment").remove(); }
+var commentId = <%= params[:id]%>
+$(function(){
+	$("#"+commentId).fadeOut();
 });
