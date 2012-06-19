@@ -18,18 +18,21 @@ class CommentsController < ApplicationController
   end
 
   def create
+    logger.debug("object :referrer_url:  #{request.env["HTTP_REFERER"]}")
     @comment = Comment.new(params[:comment])
     @comment.photo_id = params[:photo_id]
     @comment.user_id = current_user.id
     ## @comment.user_id = params[:user_id]
     debugger
     @photo = Photo.find(params[:photo_id])
-    ##  if @comment.save
-    if  params[:referrer_page_list_photos_event]
-      referer_controller = "events"
-      id = params[:referrer_page_list_photos_event]
+    if  request.env["HTTP_REFERER"] && request.env["HTTP_REFERER"].include?("events")
+      controller = "events"
+      action = "event_photos"
+      id = request.env["HTTP_REFERER"].split("/").last
+      logger.debug("object id uri::path---  #{id}")
     else
-      referer_controller = "users"
+      controller = "users"
+      action = "user_photos"
       id = current_user.id
     end
     logger.debug("===================================")
@@ -37,7 +40,7 @@ class CommentsController < ApplicationController
     logger.debug("===================================")
     if @photo.comments << @comment
       flash[:notice] = "Comment has been created"
-      redirect_to(:controller => referer_controller, :action => "list_photos", :id => id)
+      redirect_to(:controller => controller, :action => action, :id => id)
     else
       render("new")
     end

@@ -33,7 +33,7 @@
 				<td><%=user.status %></td>
 				<td class="action"> 
 					<%= link_to("All Events", { :action => "list_events", :id => user.id},:class => "action list") %>
-					<%= link_to("All Photos", { :action => "list_photos", :id => user.id},:class => "action list") %>
+					<%= link_to("All Photos", { :action => "user_photos", :id => user.id},:class => "action list") %>
 					<%= link_to("Edit User",  { :action => "edit_custom",   :id => user.id},:class => "action edit") %>
 					<%= link_to("Delete User",{ :action => "delete", :id => user.id},:class => "action delete") %> 
 				</td>

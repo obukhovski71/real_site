@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  layout 'admin'
   def new
     logger.debug("Controller Photos/Action New")
     puts params.inspect
@@ -20,8 +21,8 @@ class EventsController < ApplicationController
       render("new")
     end
   end
-  def list_photos
-    @event = Event.where(:id => params[:event_id]).first
+  def event_photos
+    @event = Event.where(:id => params[:id]).first
     logger.debug("params event_id  #{params[:event_id]}")
     @photos =  @event.photos
   end

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def list_photos
+  def user_photos
     @user = User.where(:id => params[:id]).first
     User.connection.clear_query_cache
     @photos =  @user.photos

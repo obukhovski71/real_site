@@ -8,7 +8,7 @@
 			<% @events.each_with_index do |event,i| %>
 			<tr>
 				<td>
-				<%= link_to("#{event.title}. Смотреть все фотографии",{:controller => "events", :action => "list_photos", :event_id => event.id},:class => "list event photos") %>
+				<%= link_to("#{event.title}. Смотреть все фотографии",{:controller => "events", :action => "event_photos", :id => event.id},:class => "list event photos") %>
 				</td>		
 			</tr>
 			<% end %>

@@ -11,7 +11,7 @@
 			<% @photos.each_with_index do |photo,i| %>
 			<tr>
 				<td> <%= i+1 %> </td>
-				<td> <%= render(:partial => 'shared/form_show_photo', :locals => {:photo => photo}) %> </td>
+				<td> <%= render(:partial => 'shared/form_show_photo', :locals => {:photo => photo, :id => params[:id]}) %> </td>
 			</tr>
 			<% end %>
 		</table>

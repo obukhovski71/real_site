@@ -1,19 +1,20 @@
-<div class="user photos list">
-	<h2>Фотографии с <%= @event.title%></h2>
+<div class="commentform" title="Comment" ></div>
+<div class="userphotos">
+	<h2>Фотографии с события  "<%= @event.title%>"</h2>
 	<div class="table">
 		<table class="listing" summary="User photos">
 			<tr class="header">
 				<th>&nbsp;</th>
-				<th>Фотографии</th>
+				<th>Photos</th>
 			</tr>
-			<%params[:event_list_photos] = params[:id]%>
 			<% @photos.each_with_index do |photo,i| %>
 			<tr>
 				<td> <%= i+1 %> </td>
-				<td> <%= render(:partial => 'shared/form_show_photo', :locals => {:photo => photo}) %> </td>
+				<td> <%= render(:partial => 'shared/form_show_photo', :locals => {:photo => photo,:id => @event.id}) %> </td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to("Добавить фотографию", {:controller => 'photos', :action => 'new_event_photo', :event_id => params[:event_id]}, :class => 'back-link') %>
+		<div id = "commentdialog"></div>
+		<%= link_to("Add new photo", {:controller => 'events', :action => 'new', :event_id => params[:id]}, :class => 'back-link') %>
 	</div>
 </div>
