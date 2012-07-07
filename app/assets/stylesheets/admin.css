@@ -2,6 +2,31 @@ body
 {
 background-color:#3bbfce;
 }
+h1
+{
+	padding-left:45%;
+}
+#pagecontent
+{
+	
+}
+.usernavigation
+{
+	padding-left:80%;
+}
+.header 
+{ 
+	font-style:oblique;
+	font-size:2.5em;
+	color:orange; 
+	text-align:center;
+	background-color:#FF4500;
+}
+.footer
+{
+	padding-left:80%;
+
+}
 .deletecomment{
 	font-family: serif;
   	font-weight: bold;

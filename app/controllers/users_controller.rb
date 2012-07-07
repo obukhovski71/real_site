@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'admin'
+  layout 'public'
   before_filter :authenticate_user!  ##, :except => [:index, :show]
   before_filter :check_for_cancel, :only => [:create, :edit_custom]
   def index

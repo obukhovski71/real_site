@@ -16,27 +16,10 @@
   <meta name="keywords" content="Abukhouski,Abukhovski,Obukhovski,Abuhovski">
   </head>
   <body class = "public">
-    <div class="header">
-      <img src="head_img.jpg" width="50" height="70" />
-      <h1><%= link_to('Обуховский Андрей - About me','/')%> </h1>  
+    <div id="header">
+      <h1><%= link_to('Andrei Abuhovski - About me','/',:style => 'text-decoration: none; color: #FFFFFF;')%> </h1>  
     </div>
-    	<div class="usernavigation">
-			<% if user_signed_in? %>
-			Signed in as <%= current_user.full_name %>. Not you?
-			<%= link_to "Log out", destroy_user_session_path, :method => "delete" %>
-			<% if current_user.role_id == 0%>
-			<p>
-				<%= link_to "Sign up", new_user_registration_path %>
-			</p>
-			<p>	
-				<%= link_to "View List of Users", users_path %>
-			</p>
-			<%end%>
-			<% else %>
-			<%= link_to "Sign in", new_user_session_path %>
-			<% end %>
-		</div>
-      <div id="pagecontent">
+       <div id="pagecontent">
       	<% if !flash[:notice].blank? %>
 	      	<div class="notice">
 	        	<%= flash[:notice] %>
@@ -44,7 +27,7 @@
       	<% end %>
         <%= yield %>
       </div>
-     <div class="footer">
+     <div id="footer">
       <p id="copyright">&copy; 2012 A.Abukhovski </p>
     </div>
   </body>

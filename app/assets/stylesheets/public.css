@@ -23,7 +23,7 @@ a:hover {}
 
 .clear { clear: both; }
 .center { text-align: center; }
-
+.header { color:orange; text-align:center;}
 /* Structure */
 #header { height: 4em; padding-top: 1em; text-align: center; 
   background: #993120; color: #FFFFFF; }
